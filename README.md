@@ -1,9 +1,10 @@
 # Competitive-Programming
 
-ACM_ICPC
+Competitions I participate in:
+      ACM_ICPC
+      Google Kickstart
+      Topcoder
+      Kaggle
 
-Google Kickstart
-Topcoder
-Kaggle
-
+Check out my algorithms Github for easier problems
 
