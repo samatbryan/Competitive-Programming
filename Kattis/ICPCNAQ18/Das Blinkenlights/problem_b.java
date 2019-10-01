@@ -34,7 +34,6 @@ public class problem_b{
         return gcd(b, a%b);
       }
 
-
       public int lcm(int a, int b){
         return (a*b)/gcd(a, b);
       }

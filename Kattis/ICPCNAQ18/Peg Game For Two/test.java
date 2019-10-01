@@ -11,7 +11,7 @@ import java.io.Writer;
 import java.io.OutputStreamWriter;
 import java.util.Comparator;
 import java.io.InputStream;
-public class problem_j{
+public class test{
   public static void main(String[] args) {
       InputStream inputStream = System.in;
       OutputStream outputStream = System.out;
@@ -25,132 +25,31 @@ public class problem_j{
   }
 
   static class Solution {
-      static int move(int[][] a, int row, int col){
-        int value = 0;
-        int maximum = 0;
-        if(a[row][col]==0){
-          return 0;
-        }
-        int newrow = row;
-        int newcol = col;
-        int nnrow = row;
-        int nncol = col;
-        //upright
-        if(row-2>=0){
-          if(a[row-2][col] ==0){
-            value = a[row][col] * a[row-1][col];
-            if(value>maximum){
-              maximum = value;
-              newrow = row-1;
-              nnrow = row-2;
-
-            }
-          }
-        }
-
-        //downleft
-        if(row+2<5){
-          if(a[row+2][col] ==0){
-            value = a[row][col] * a[row+2][col];
-            if(value>maximum){
-              maximum = value;
-              newrow = row+2;
-
-            }
-          }
-        }
-        //downright
-        if(row+2<5 && col+2<5){
-          if(a[row+2][col+2] ==0){
-            value = a[row][col] * a[row+2][col+2];
-            if(value>maximum){
-              maximum = value;
-              newrow = row-2;
-              newcol = col +2;
-
-            }
-          }
-        }
-
-        //upleft
-        if(row-2>=0 && col-2>=0){
-          if(a[row-2][col-2] ==0){
-            value = a[row][col] * a[row-1][col-1];
-            if(value>maximum){
-              maximum = value;
-              newrow = row-2;
-
-            }
-          }
-        }
-
-        //left
-        if(col-2>=0){
-          if(a[row][col-2] ==0){
-
-          }
-        }
-        //right
-        if(col+2<5){
-          if(a[row][col+2] ==0){
-
-          }
-        }
-
-        a[newrow][newcol] = 0;
-        a[nnrow][nncol] = a[row][col];
-        a[row][col] = 0;
-        
-        return value;
-      }
       public void solve(int testNumber, InputReader in, OutputWriter out) {
-          int[][] arr  = new int[5][5];
-          int num_holes = 1;
-          int res = 0;
-          // initialize matrix with -1's.
-          for(int i=1; i<=5; i++){
-            for(int j=1; j<=5; j++){
-              arr[i][j] = -1;
-            }
-          }
+        int[][] a = new int[5][];
+        for(int i=1; i<=5; i++){
+          a[i-1] = new int[i];
+        }
 
-          for(int i=1; i<=5; i++){
-            for(int j=0; j<i; j++){
-              int val = in.nextInt();
-              arr[i-1][j] = val;
-            }
+        for(int j=0; j<5; j++){
+          for(int i=0; i<a[j].length; i++){
+            System.out.print(a[j][i]);
           }
-          while(num_holes<15){
-            int maxx = 0;
-            for(int y=0; y<5; y++){
-              for(int t=0; t<5; t++){
-                if(arr[y][t]==0){
-                  int val = move(arr,y,t);
-                  if(val>maxx){
-                    maxx = val;
-                  }
-                }
-              }
-            }
-            res += maxx;
-            alternate *=-1;
+          System.out.println();
+        }
+        System.out.println(1e-4);
 
-            num_holes +=1;
 
-          }
 
-          for(int i=0; i<arr.length; i++){
-            for(int j=0; j<arr[i].length; j++){
-              System.out.print(arr[i][j]);
-            }
-            System.out.println();
-          }
+
+
 
 
             //out.printf("Case #%d: %s\n", testNumber, new String(ans));
       }
 
   }
+
 
 
 
