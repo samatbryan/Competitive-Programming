@@ -11,7 +11,7 @@ import java.io.Writer;
 import java.io.OutputStreamWriter;
 import java.util.Comparator;
 import java.io.InputStream;
-public class Autori{
+public class problem_i{
   public static void main(String[] args) {
       InputStream inputStream = System.in;
       OutputStream outputStream = System.out;
@@ -28,7 +28,7 @@ public class Autori{
       public void solve(int testNumber, InputReader in, OutputWriter out) {
           String d = in.next();
 
-          
+
 
           out.printf(sb.toString());
           //out.printf("Case #%d: %s\n", testNumber, new String(ans));

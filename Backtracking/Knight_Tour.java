@@ -1,3 +1,0 @@
-class Knight_Tour {
-  
-}
