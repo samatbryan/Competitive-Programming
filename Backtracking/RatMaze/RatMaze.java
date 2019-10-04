@@ -54,9 +54,9 @@ class RatMaze{
   }
   public static void main(String[] args){
     int[][] board = new int[][]{  {1, 0, 0, 0},
-                                  {1, 1, 0, 1},
-                                  {0, 1, 0, 0},
-                                  {1, 1, 1, 1}};
+                                  {1, 1, 1, 1},
+                                  {0, 1, 0, 1},
+                                  {1, 0, 1, 1}};
     RatMaze rm = new RatMaze();
     board[0][0] = 7;
     rm.solve(board, 0,0,4);
