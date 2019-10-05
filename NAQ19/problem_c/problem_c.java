@@ -26,11 +26,51 @@ public class problem_c{
 
   static class Solution {
       public void solve(int testNumber, InputReader in, OutputWriter out) {
-          String d = in.next();
+          int p = in.nextInt();
+          int d = in.nextInt();
+          int[] A = new int[d+1];
+          int[] B = new int[d+1];
+          int[] W = new int[d+1];
+          int wastedA=0;
+          int wastedB=0;
+          int V = 0;
 
+          for(int i=0; i<p; i++){
+            int district = in.nextInt();
+            int avote = in.nextInt();
+            int bvote = in.nextInt();
+            A[district]+= avote;
+            B[district]+= bvote;
+            V = V + avote + bvote;
+          }
+          for(int i=1; i<=d; i++){
+            int sum = A[i] + B[i];
+            if(A[i]>B[i]){
+              out.printf("A ");
+              out.printf(Integer.toString(Math.abs(sum/2  + 1 - A[i])));
 
+              out.printf(" ");
+              out.printf(Integer.toString(B[i]));
 
-          out.printf(sb.toString());
+              wastedB += B[i];
+              wastedA += Math.abs(sum/2  + 1 -A[i]);
+            }
+            else{
+              out.printf("B ");
+              wastedA += A[i];
+              wastedB += Math.abs(sum/2  + 1 - B[i]);
+              out.printf(Integer.toString(A[i]));
+              out.printf(" ");
+              out.printf(Integer.toString(Math.abs(sum/2  + 1 - B[i])));
+            }
+
+            out.printf(" \n");
+          }
+
+          //System.out.println(Math.abs(wastedA - wastedB));
+          double q = (double) Math.abs(wastedA - wastedB)/V;
+          out.printf(Double.toString(q));
+
           //out.printf("Case #%d: %s\n", testNumber, new String(ans));
       }
 

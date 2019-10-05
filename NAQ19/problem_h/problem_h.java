@@ -11,6 +11,9 @@ import java.io.Writer;
 import java.io.OutputStreamWriter;
 import java.util.Comparator;
 import java.io.InputStream;
+import java.util.List;
+import java.util.HashMap;
+
 public class problem_h{
   public static void main(String[] args) {
       InputStream inputStream = System.in;
@@ -26,13 +29,32 @@ public class problem_h{
 
   static class Solution {
       public void solve(int testNumber, InputReader in, OutputWriter out) {
-          String d = in.next();
+          int n = in.nextInt();
+          int angle = 360/n;
+          HashMap<Integer, List<Integer>> hm = new HashMap<Integer, List<Integer>>();
+
+          int r = 1;
+          for (int i = 0; i < n; i++) {
+            List<Integer> l = new ArrayList<Integer>();
+            l.
+            hm.put(i, )
+            System.out.printf("%f %f\n",r * Math.cos(2 * Math.PI * i / n), r * Math.sin(2 * Math.PI * i / n));
+            System.out.println();
+          }
+          /*for(int i=0; i<n; i++){
+
+
+            hm.put(i,)
+          }
+          */
 
 
 
-          out.printf(sb.toString());
-          //out.printf("Case #%d: %s\n", testNumber, new String(ans));
+            //out.printf("Case #%d: %s\n", testNumber, new String(ans));
       }
+
+
+
 
   }
 

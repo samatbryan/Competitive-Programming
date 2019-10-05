@@ -11,6 +11,9 @@ import java.io.Writer;
 import java.io.OutputStreamWriter;
 import java.util.Comparator;
 import java.io.InputStream;
+import java.util.HashMap;
+import java.lang.StringBuilder;
+
 public class problem_e{
   public static void main(String[] args) {
       InputStream inputStream = System.in;
@@ -25,12 +28,49 @@ public class problem_e{
   }
 
   static class Solution {
+      public String removeV(String s){
+        StringBuilder sb = new StringBuilder();
+        for(int i=0; i<s.length(); i++){
+          char c = s.charAt(i);
+          if(c=='A' || c=='E' || c=='I' || c=='O' || c=='U'){
+            continue;
+          }
+          sb.append(c);
+        }
+        return sb.toString();
+      }
+
       public void solve(int testNumber, InputReader in, OutputWriter out) {
-          String d = in.next();
+          HashMap<String,String> hm = new HashMap<String,String>();
+          int n = in.nextInt();
+          for(int i=0; i<n ;i++){
+
+            String s = in.next();
+            String r = removeV(s);
+
+            hm.put(r, s);
+
+          }
+          StringBuilder res = new StringBuilder();
+          String f = in.next();
+          StringBuilder sb = new StringBuilder();
+          for(int i=0; i<f.length(); i++){
+            sb.append(f.charAt(i));
+
+              String q = sb.toString();
+              if(hm.containsKey(q)) {
+                res.append(hm.get(q));
+                res.append(" ");
+                sb = new StringBuilder();
+              }
 
 
 
-          out.printf(sb.toString());
+          }
+          res.deleteCharAt(res.length() - 1);
+
+          out.printf(res.toString());
+
           //out.printf("Case #%d: %s\n", testNumber, new String(ans));
       }
 

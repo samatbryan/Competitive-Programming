@@ -11,6 +11,12 @@ import java.io.Writer;
 import java.io.OutputStreamWriter;
 import java.util.Comparator;
 import java.io.InputStream;
+import java.util.HashMap;
+import java.util.Scanner;
+import java.util.Deque;
+import java.util.ArrayDeque;
+
+
 public class problem_a{
   public static void main(String[] args) {
       InputStream inputStream = System.in;
@@ -25,12 +31,88 @@ public class problem_a{
   }
 
   static class Solution {
+
+      public boolean isAlpha(String s){
+        if(s.equals("*") || s.equals("-") || s.equals("+")){
+          return false;
+        }
+        return true;
+      }
+
+
       public void solve(int testNumber, InputReader in, OutputWriter out) {
-          String d = in.next();
+          Deque<Boolean> stack = new ArrayDeque<Boolean>();
+
+          String[] alphabets = new String[]{"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q",
+                                        "R" , "S", "T", "U", "V", "W", "X" ,"Y", "Z"};
+          int n = in.nextInt();
 
 
 
-          out.printf(sb.toString());
+          HashMap<String, Boolean> hm  = new HashMap<String, Boolean>();
+
+          for(int i=0; i<2*n; i++){
+            String op = in.next();
+            if(op=="T"){
+              hm.put(alphabets[i], true);
+            }
+            else{
+              hm.put(alphabets[i], false);
+            }
+          }
+          //System.out.println(c);
+
+          Scanner scan = new Scanner(System.in);
+
+          for(int i=0; i<250;i++){
+            if(scan.hasNext()){
+              String p = scan.next();
+              System.out.println(p);
+            }
+          }
+          scan.close();
+
+
+          String q = in.next();
+          System.out.println(q);
+          StringBuilder sb = new StringBuilder();
+          boolean prev;
+          while(scan.hasNext()){
+            String p =  scan.next();
+            if(isAlpha(p)){
+              stack.push(hm.get(p));
+            }
+            else{
+              if(p.equals("+")){
+                Boolean right = stack.pop();
+                Boolean left = stack.pop();
+                stack.push(right || left);
+              }
+              else if(p.equals("*")){
+                Boolean right = stack.pop();
+                Boolean left = stack.pop();
+                stack.push(right && left);
+              }
+              else{
+                Boolean left = stack.pop();
+                stack.push(!left);
+              }
+            }
+
+          }
+
+
+          Boolean last = stack.pop();
+          if(last){
+            System.out.println("T");
+          }
+          else{
+            System.out.println("F");
+          }
+
+
+
+
           //out.printf("Case #%d: %s\n", testNumber, new String(ans));
       }
 

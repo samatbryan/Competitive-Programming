@@ -26,11 +26,38 @@ public class problem_k{
 
   static class Solution {
       public void solve(int testNumber, InputReader in, OutputWriter out) {
-          String d = in.next();
+
+          int done[] = new int[26];
+          String s = in.next();
+          int a[] = new int[26];
+          int res = 0;
+          int n = s.length();
+          StringBuilder sb = new StringBuilder();
+          for(int i=0; i<n; i++){
+            if(done[s.charAt(i) - 'a'] == 0){
+              sb = new StringBuilder();
+              int dist_count =0;
+              Arrays.fill(a, 0);
+
+              for(int j=i; j<n; j++){
+                if(a[s.charAt(j) - 'a'] ==0){
+                  sb.append(s.charAt(j));
+                  dist_count++;
+                  if(dist_count>1){
+                    System.out.println(sb.toString());
+                    res ++;
+                  }
+                }
+                a[s.charAt(j) -'a']++;
+              }
+              done[s.charAt(i) - 'a'] +=1;
+            }
 
 
 
-          out.printf(sb.toString());
+          }
+
+          out.printf(Integer.toString(res));
           //out.printf("Case #%d: %s\n", testNumber, new String(ans));
       }
 

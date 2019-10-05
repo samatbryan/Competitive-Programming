@@ -26,11 +26,32 @@ public class problem_d{
 
   static class Solution {
       public void solve(int testNumber, InputReader in, OutputWriter out) {
-          String d = in.next();
+
+          int n = in.nextInt();
+          int[] a = new int[201];
+          int last = 0;
+          for(int i=0; i<n; i++){
+
+            int v = in.nextInt();
+            if(i==n-1){
+              last = v;
+            }
+            a[v] +=1;
+          }
+
+          boolean job = true;
+          for(int i=1; i<=last; i++){
+            if(a[i]==0){
+              job = false;
+              out.printf(Integer.toString(i));
+              out.printf("\n");
+            }
+          }
+          if(job){
+            out.printf("good job");
+          }
 
 
-
-          out.printf(sb.toString());
           //out.printf("Case #%d: %s\n", testNumber, new String(ans));
       }
 

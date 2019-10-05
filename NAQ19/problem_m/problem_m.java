@@ -25,12 +25,39 @@ public class problem_m{
   }
 
   static class Solution {
+      public int binarySearch(double min, int leftpole, int rightpole, int left, int right){
+        double mid = (double)(left + right)/2;
+        if(>=min)
+
+      }
       public void solve(int testNumber, InputReader in, OutputWriter out) {
-          String d = in.next();
+          int n = in.nextInt();
+          for(int i=0; i<n; i++){
+              int w = in.nextInt();
+              int g = in.nextInt();
+              int h = in.nextInt();
+              int r = in.nextInt();
+
+              int newg = g-r;
+              int newh = h-r;
+              int diff = Math.abs(newg-newh);
+              Double m = Math.pow(w*w + diff*diff,.5);
+
+              double midpoint = (double) w/2;
+
+              Double minimize = Math.pow(midpoint*midpoint + newg*newg ,.5) + Math.pow(midpoint*midpoint + newh*newh , .5);
 
 
+              out.printf(Double.toString(m));
 
-          out.printf(sb.toString());
+              out.printf(" ");
+              out.printf(Double.toString(minimize));
+
+              out.printf("\n");
+
+          }
+
+
           //out.printf("Case #%d: %s\n", testNumber, new String(ans));
       }
 
