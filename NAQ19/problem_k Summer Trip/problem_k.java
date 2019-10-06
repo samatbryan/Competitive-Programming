@@ -11,6 +11,7 @@ import java.io.Writer;
 import java.io.OutputStreamWriter;
 import java.util.Comparator;
 import java.io.InputStream;
+import java.util.HashSet;
 public class problem_k{
   public static void main(String[] args) {
       InputStream inputStream = System.in;
@@ -33,24 +34,21 @@ public class problem_k{
           int res = 0;
           int n = s.length();
           StringBuilder sb = new StringBuilder();
-          for(int i=0; i<n; i++){
-            if(done[s.charAt(i) - 'a'] == 0){
-              sb = new StringBuilder();
-              int dist_count =0;
-              Arrays.fill(a, 0);
 
-              for(int j=i; j<n; j++){
-                if(a[s.charAt(j) - 'a'] ==0){
-                  sb.append(s.charAt(j));
-                  dist_count++;
-                  if(dist_count>1){
-                    System.out.println(sb.toString());
-                    res ++;
-                  }
-                }
-                a[s.charAt(j) -'a']++;
+          for(int i=0; i<n; i++){
+            Character start = s.charAt(i);
+            Arrays.fill(a,0);
+            a[s.charAt(i)-'a'] +=1;
+            HashSet<Character> hs = new HashSet<Character>();
+
+            for(int j=i+1; j<n; j++){
+              if(s.charAt(j)==start){
+                break;
               }
-              done[s.charAt(i) - 'a'] +=1;
+              if(!hs.contains(s.charAt(j))){
+                res+=1;
+              }
+              hs.add(s.charAt(j));
             }
 
 
