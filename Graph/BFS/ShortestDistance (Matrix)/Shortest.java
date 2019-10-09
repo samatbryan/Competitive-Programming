@@ -61,7 +61,9 @@ public class Shortest{
       this.dist = dist;
     }
   }
-  public static void main(String[] args){
+  public static void public static void main(String[] args) {
+
+  }(String[] args){
     Shortest s = new Shortest();
     int[][] board = new int[][]{
       {0,0,0},
