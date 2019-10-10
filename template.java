@@ -32,9 +32,6 @@ public class Solution {
             out.printf("Case #%d: %s\n", testNumber, new String(ans));
         }
       }
-      
-
-
     static class InputReader {
         private InputStream stream;
         private byte[] buf = new byte[1 << 16];
