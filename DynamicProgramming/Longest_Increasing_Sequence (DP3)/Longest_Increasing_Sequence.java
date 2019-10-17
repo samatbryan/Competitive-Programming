@@ -1,5 +1,6 @@
 class Longest_Increasing_Sequence{
 
+
   public int lis(int[] nums){
       int max = 1;
       int[] dp = new int[nums.length];
