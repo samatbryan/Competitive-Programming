@@ -66,7 +66,7 @@ public class Dijkstras{
     int cost;
 
     Node(){
-
+s
     }
     Node(int node, int cost){
       this.node = node;

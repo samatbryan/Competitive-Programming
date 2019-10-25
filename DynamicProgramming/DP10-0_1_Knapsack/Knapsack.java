@@ -9,6 +9,9 @@ public class Knapsack{
 
   public int solve(int[] weights, int[] values, int weight){
     int n = values.length;
+
+    // how many items
+    // how much weight
     int dp[][] = new int[n+1][weight+1];
 
     for(int i=0; i<=weight; i++){
