@@ -6,7 +6,7 @@ public class Knapsack{
 //Also given an integer W which represents knapsack capacity, find out the maximum value subset
 //of val[] such that sum of the weights of this subset is smaller than or equal to W.
 //You cannot break an item, either pick the complete item, or don’t pick it (0-1 property).
-
+/*
   public int solve(int[] weights, int[] values, int weight){
     int n = values.length;
 
@@ -30,11 +30,38 @@ public class Knapsack{
           dp[i][j] = Math.max(dp[i-1][j-weights[i-1]] + values[i-1], dp[i-1][j]);
           //either put a value in there if weight doesnt go over, or just go with 1 less item
         }
-
       }
     }
     return dp[n][weight];
 
+
+  }
+  */
+  public int solve(int[] weights, int[] values, int weight){
+    int n = values.length;
+
+    // how many items
+    // how much weight
+    int[][] dp = new int[weight+1][weights.length+1];
+    for(int i=0; i<=weights.length; i++){
+      dp[0][i] = 0;
+    }
+    for(int i=0; i<=weight; i++){
+      dp[i][0] = 0;
+    }
+    for(int i=1; i<=weight; i++){
+      for(int j=1; j<=n; j++){
+        int curr = weights[j-1];
+        if(curr > i){
+          dp[i][j] = dp[i][j-1];
+        }
+        else{
+          dp[i][j] =  Math.max( dp[i-weights[j-1]][j-1] + values[j-1], dp[i][j-1]);
+        }
+      }
+    }
+
+    return dp[weight][n];
 
 
   }

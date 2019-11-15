@@ -1,0 +1,20 @@
+
+1. Warm-up: You toss a coin till you get tails. How many tosses there will be, on average?
+2. X or smaller — There is a hidden number 𝑋. An interactor repeatedly gives you a number,
+ either 𝑋 or something smaller than 𝑋. All numbers are positive integers.
+ When can you stop and say that you are (almost) certain what is the value of 𝑋?
+
+
+3. Line through N/4 points — Given 𝑁≤105 points, find a line
+that passes through the maximum number of points.
+It's guaranteed that the answer is at least 𝑁/4.
+
+- Probability of not encountering max =
+
+4. GCD (364D - Ghd) — given a set of 𝑁≤106 numbers,
+each up to 1012, find the maximum possible number that is a
+divisor of at least half of given numbers.
+
+5. ACTG prefix — Guess a hidden string 𝑆 with characters A, C, T, G.
+You can choose some string and ask if it's a prefix of 𝑆. The length of 𝑆
+is at most 10000 and you can ask up to 25000 queries.

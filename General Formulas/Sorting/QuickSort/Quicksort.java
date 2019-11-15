@@ -1,3 +1,11 @@
+/*
+Pick a partition
+Put < at left and > at right using this partition
+Do left and do right
+
+In place
+*/
+
 public class Quicksort{
   public int[] quicksort(){
 

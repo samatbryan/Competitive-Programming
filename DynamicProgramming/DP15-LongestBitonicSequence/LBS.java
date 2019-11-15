@@ -27,7 +27,7 @@ public class LBS{
         }
       }
     }
-    // this will represent the value of longest decreasing sequence starting from index i ending at last.
+    // this will represent the value of longest decreasing sequence starting from index i ending aft last.
     for(int i=n-1; i>=0; i--){
       for(int j=i+1; j<=n-1; j++){
         if(arr[i] > arr[j]){
