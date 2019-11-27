@@ -13,6 +13,7 @@ public class Dijkstras{
     Set<Integer> popped;
     PriorityQueue<Node> pq;
     ArrayList<Node>[] adj;
+    int[] parents;
 
     Graph(int n){
       V = n;
@@ -35,6 +36,7 @@ public class Dijkstras{
     }
 
     public int dijkstras(int src, int dest){
+
       for(int i=0; i<V; i++){
         dist[i] = Integer.MAX_VALUE;
       }
